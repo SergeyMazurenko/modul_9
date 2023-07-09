@@ -28,9 +28,7 @@ public class MyArrayList<T> {
     }
 
     public void clear() {
-        for (int i = 0; i < size; i++) {
-            array[i] = null;
-        }
+        array = new Object[10]; // Начальный размер массива
         size = 0;
     }
 
@@ -50,9 +48,7 @@ public class MyArrayList<T> {
     private void ensureCapacity(int capacity) {
         if (capacity > array.length) {
             int newCapacity = array.length * 2; // Увеличиваем размер массива вдвое
-            if (newCapacity < capacity) {
-                newCapacity = capacity;
-            }
+            
 
             Object[] newArray = new Object[newCapacity];
             System.arraycopy(array, 0, newArray, 0, size);
